@@ -130,33 +130,32 @@ fn main() -> CliResult {
             command: Some(CliCommand::SelfUpdate(update_self::CliSelfUpdateCommand {})),
             ..
         }))
-    ) {
-        if let Ok(Ok(latest_version)) = handle.join() {
-            let current_version = semver::Version::parse(self_update::cargo_crate_version!())
-                .wrap_err("Failed to parse current version of `near-validator`")?;
+    ) && let Ok(Ok(latest_version)) = handle.join()
+    {
+        let current_version = semver::Version::parse(self_update::cargo_crate_version!())
+            .wrap_err("Failed to parse current version of `near-validator`")?;
 
-            let latest_version = semver::Version::parse(&latest_version)
-                .wrap_err("Failed to parse latest version of `near-validator`")?;
+        let latest_version = semver::Version::parse(&latest_version)
+            .wrap_err("Failed to parse latest version of `near-validator`")?;
 
-            if current_version < latest_version {
-                eprintln!(
-                    "\n`near-validator` has a new update available \x1b[2m{current_version}\x1b[0m →  \x1b[32m{latest_version}\x1b[0m"
-                );
-                let self_update_cli_cmd = CliCmd {
-                    quiet: false,
-                    teach_me: false,
-                    command: Some(CliCommand::SelfUpdate(update_self::CliSelfUpdateCommand {})),
-                };
-                eprintln!(
-                    "To update `near-validator` use: {} {}",
-                    std::env::args()
-                        .next()
-                        .as_deref()
-                        .unwrap_or("./validator")
-                        .yellow(),
-                    shell_words::join(self_update_cli_cmd.to_cli_args()).yellow()
-                );
-            }
+        if current_version < latest_version {
+            eprintln!(
+                "\n`near-validator` has a new update available \x1b[2m{current_version}\x1b[0m →  \x1b[32m{latest_version}\x1b[0m"
+            );
+            let self_update_cli_cmd = CliCmd {
+                quiet: false,
+                teach_me: false,
+                command: Some(CliCommand::SelfUpdate(update_self::CliSelfUpdateCommand {})),
+            };
+            eprintln!(
+                "To update `near-validator` use: {} {}",
+                std::env::args()
+                    .next()
+                    .as_deref()
+                    .unwrap_or("./validator")
+                    .yellow(),
+                shell_words::join(self_update_cli_cmd.to_cli_args()).yellow()
+            );
         }
     };
 

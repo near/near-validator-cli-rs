@@ -116,7 +116,7 @@ pub fn display_proposals_info(
     }
     let mut combine_validators_and_proposals_table: Vec<ProposalsTable> =
         combine_validators_and_proposals.into_values().collect();
-    combine_validators_and_proposals_table.sort_by(|a, b| b.stake.cmp(&a.stake));
+    combine_validators_and_proposals_table.sort_by_key(|b| std::cmp::Reverse(b.stake));
 
     let partial_genesis_config = get_partial_genesis_config(&json_rpc_client)?;
 

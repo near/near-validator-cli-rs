@@ -65,7 +65,7 @@ pub fn display_current_validators_info(
         _ => {
             return Err(color_eyre::eyre::ErrReport::msg(
                 "BlockReference: incorrect value entered",
-            ))
+            ));
         }
     };
 
@@ -75,7 +75,7 @@ pub fn display_current_validators_info(
         .blocking_call(&RpcValidatorRequest { epoch_reference })
         .wrap_err("Failed to get epoch validators information request.")?
         .current_validators;
-    current_validators.sort_by(|a, b| b.stake.cmp(&a.stake));
+    current_validators.sort_by_key(|b| std::cmp::Reverse(b.stake));
 
     let partial_genesis_config = get_partial_genesis_config(&json_rpc_client)?;
 

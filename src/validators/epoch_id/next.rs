@@ -52,7 +52,7 @@ fn display_next_validators_info(
         .collect();
 
     let mut next_validators = epoch_validator_info.next_validators;
-    next_validators.sort_by(|a, b| b.stake.cmp(&a.stake));
+    next_validators.sort_by_key(|b| std::cmp::Reverse(b.stake));
 
     let partial_genesis_config = get_partial_genesis_config(&json_rpc_client)?;
 
