@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.10](https://github.com/near/near-validator-cli-rs/compare/v0.1.9...v0.1.10) - 2026-06-08
+
+### Added
+
+- Added styling options for "newline", "option selection" and "answer" for "inquire" crate ([#35](https://github.com/near/near-validator-cli-rs/pull/35))
+
+### Other
+
+- bump near-* deps to nearcore 2.12 / protocol 84 + fix protocol-config deserialization ([#37](https://github.com/near/near-validator-cli-rs/pull/37))
+- upgrade to Rust edition 2024 ([#34](https://github.com/near/near-validator-cli-rs/pull/34))
+- migrate to org-wide NEARPROTOCOL_CI_PR_ACCESS token ([#33](https://github.com/near/near-validator-cli-rs/pull/33))
+
 ## [0.1.9](https://github.com/near-cli-rs/near-validator-cli-rs/compare/v0.1.8...v0.1.9) - 2026-01-09
 
 ### Added
