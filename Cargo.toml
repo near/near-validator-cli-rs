@@ -48,15 +48,15 @@ self_update = { version = "0.42.0", features = [
     "compression-flate2",
 ], optional = true }
 
-near-crypto = "0.34"
-near-primitives = "0.34"
-near-jsonrpc-client = { version = "0.20", features = ["any"] }
-near-jsonrpc-primitives = "0.34"
+near-crypto = "0.36"
+near-primitives = "0.36"
+near-jsonrpc-client = { version = "0.21", features = ["any"] }
+near-jsonrpc-primitives = "0.36"
 
 interactive-clap = "0.3"
 interactive-clap-derive = "0.3"
 
-near-cli-rs = { version = "0.23.6", default-features = false }
+near-cli-rs = { version = "0.27", default-features = false }
 near-token = { version = "0.3", features = [
     "serde",
     "borsh",
