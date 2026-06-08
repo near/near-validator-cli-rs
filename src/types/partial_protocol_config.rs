@@ -1,9 +1,11 @@
+use color_eyre::eyre::Context;
 use near_jsonrpc_client::methods::EXPERIMENTAL_protocol_config::RpcProtocolConfigError;
 
 #[derive(Debug, serde::Serialize, serde::Deserialize)]
 pub struct PartialProtocolConfigView {
     pub protocol_version: near_primitives::types::ProtocolVersion,
     pub num_block_producer_seats: near_primitives::types::NumSeats,
+    #[serde(default)]
     pub avg_hidden_validator_seats_per_shard: Vec<near_primitives::types::NumSeats>,
 }
 
@@ -23,5 +25,5 @@ pub fn get_partial_protocol_config(
     tokio::runtime::Runtime::new()
         .unwrap()
         .block_on(json_rpc_client.call(request))
-        .map_err(|_| color_eyre::eyre::eyre!("Failed to get protocol config."))
+        .wrap_err("Failed to get protocol config.")
 }
