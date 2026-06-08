@@ -1,3 +1,4 @@
+use color_eyre::eyre::Context;
 use near_jsonrpc_client::methods::EXPERIMENTAL_genesis_config::RpcGenesisConfigError;
 use num_rational::Rational32;
 
@@ -23,5 +24,5 @@ pub fn get_partial_genesis_config(
     tokio::runtime::Runtime::new()
         .unwrap()
         .block_on(json_rpc_client.call(request))
-        .map_err(|_| color_eyre::eyre::eyre!("Failed to get genesis config."))
+        .wrap_err("Failed to get genesis config.")
 }
