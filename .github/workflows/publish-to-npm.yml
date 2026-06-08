@@ -10,13 +10,13 @@ on:
         type: string
         required: true
 
+permissions:
+  id-token: write
+
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Configure credentials
-        run: |
-          npm set "//registry.npmjs.org/:_authToken" ${{ secrets.NPM_REGISTRY_TOKEN }}
       - name: Publish to npmjs.com
         run: |
           RELEASE_TAG_NAME=${{ inputs.release_tag_name }}
