@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.13](https://github.com/near/near-validator-cli-rs/compare/v0.1.12...v0.1.13) - 2026-06-17
+
+### Other
+
+- Fixed NPM publishing (enable Trusted Publishing on NPM) - use Node.js 24.x as npm 11+ is required
+
 ## [0.1.12](https://github.com/near/near-validator-cli-rs/compare/v0.1.11...v0.1.12) - 2026-06-17
 
 ### Other
