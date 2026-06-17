@@ -8,7 +8,8 @@ authors = [
 ]
 license = "MIT OR Apache-2.0"
 edition = "2024"
-repository = "https://github.com/near-cli-rs/near-validator-cli-rs"
+homepage = "https://github.com/near/near-validator-cli-rs"
+repository = "https://github.com/near/near-validator-cli-rs"
 description = "near-validator is your human-friendly companion that helps to interact with NEAR Validators from command line."
 
 [package.metadata.wix]
@@ -50,7 +51,7 @@ self_update = { version = "0.42.0", features = [
 
 near-crypto = "0.36"
 near-primitives = "0.36"
-near-jsonrpc-client = { version = "0.21", features = ["any"] }
+near-jsonrpc-client = { version = "0.21.1", features = ["any"] }
 near-jsonrpc-primitives = "0.36"
 
 interactive-clap = "0.3"
