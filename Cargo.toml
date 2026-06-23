@@ -49,18 +49,18 @@ self_update = { version = "0.42.0", features = [
     "compression-flate2",
 ], optional = true }
 
-# nearcore 2.13 (protocol v85) is not published to crates.io yet, so the
-# near-* crates are git-pinned to the 2.13-release rev (matching the rest of
-# the DevEx 2.13 stack). Swap back to crates.io versions once 2.13 ships.
-near-crypto = { git = "https://github.com/near/nearcore", rev = "46483c8d45579dd89faa3bd47317d4c563bcde10" }
-near-primitives = { git = "https://github.com/near/nearcore", rev = "46483c8d45579dd89faa3bd47317d4c563bcde10" }
-near-jsonrpc-client = { git = "https://github.com/near/near-jsonrpc-client-rs", rev = "5f5d150d47315745945fba7672bf8c90c5bf7f95", features = ["any"] }
-near-jsonrpc-primitives = { git = "https://github.com/near/nearcore", rev = "46483c8d45579dd89faa3bd47317d4c563bcde10" }
+# nearcore 2.13 (protocol v85): published 2.13 RC 0.37.0-rc.1; bump to 0.37.0
+# (drop pre-release) once 2.13 ships stable. The jsonrpc client stays on its
+# matching 2.13 draft rev until it cuts a crates.io release.
+near-crypto = "0.37.0-rc.1"
+near-primitives = "0.37.0-rc.1"
+near-jsonrpc-client = { git = "https://github.com/near/near-jsonrpc-client-rs", rev = "b1ea63913de39768f4c40affaaf958e79704710d", features = ["any"] }
+near-jsonrpc-primitives = "0.37.0-rc.1"
 
 interactive-clap = "0.3"
 interactive-clap-derive = "0.3"
 
-near-cli-rs = { git = "https://github.com/near/near-cli-rs", rev = "178be1a97e19e354d5ca0e7b6a1531d9577f29fc", default-features = false }
+near-cli-rs = { git = "https://github.com/near/near-cli-rs", rev = "f239a8fdc09d15c60c826f04c8544b1a8fba4418", default-features = false }
 near-token = { version = "0.3", features = [
     "serde",
     "borsh",
