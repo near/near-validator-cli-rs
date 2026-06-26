@@ -49,18 +49,18 @@ self_update = { version = "0.42.0", features = [
     "compression-flate2",
 ], optional = true }
 
-# nearcore 2.13 (protocol v85): published 2.13 RC 0.37.0-rc.1; bump to 0.37.0
+# nearcore 2.13 (protocol v85): published 2.13 RC 0.37.0-rc.2; bump to 0.37.0
 # (drop pre-release) once 2.13 ships stable. The jsonrpc client stays on its
 # matching 2.13 draft rev until it cuts a crates.io release.
-near-crypto = "0.37.0-rc.1"
-near-primitives = "0.37.0-rc.1"
-near-jsonrpc-client = { git = "https://github.com/near/near-jsonrpc-client-rs", rev = "b1ea63913de39768f4c40affaaf958e79704710d", features = ["any"] }
-near-jsonrpc-primitives = "0.37.0-rc.1"
+near-crypto = "0.37.0-rc.2"
+near-primitives = "0.37.0-rc.2"
+near-jsonrpc-client = { git = "https://github.com/near/near-jsonrpc-client-rs", rev = "4196c34db5c5e6acfc563d62ab16c68b7c666d7e", features = ["any"] }
+near-jsonrpc-primitives = "0.37.0-rc.2"
 
 interactive-clap = "0.3"
 interactive-clap-derive = "0.3"
 
-near-cli-rs = { git = "https://github.com/near/near-cli-rs", rev = "f239a8fdc09d15c60c826f04c8544b1a8fba4418", default-features = false }
+near-cli-rs = { git = "https://github.com/near/near-cli-rs", rev = "e170e55345c05f57eab0f3527f4c6bcb73a492b9", default-features = false }
 near-token = { version = "0.3", features = [
     "serde",
     "borsh",
