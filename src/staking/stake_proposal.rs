@@ -30,10 +30,12 @@ impl StakeProposalContext {
         previous_context: near_cli_rs::GlobalContext,
         scope: &<StakeProposal as interactive_clap::ToInteractiveClapContextScope>::InteractiveClapContextScope,
     ) -> color_eyre::eyre::Result<Self> {
+        let public_key: near_crypto::PublicKey = scope.public_key.clone().into();
+        super::ensure_ed25519_validator_key(&public_key)?;
         Ok(Self {
             global_context: previous_context,
             validator: scope.validator.clone().into(),
-            public_key: scope.public_key.clone().into(),
+            public_key,
             stake: scope.stake,
         })
     }
