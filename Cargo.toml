@@ -1,6 +1,6 @@
 [package]
 name = "near-validator"
-version = "0.1.13"
+version = "0.2.0"
 authors = [
     "FroVolod <frol_off@meta.ua>",
     "frol <frolvlad@gmail.com>",
@@ -49,17 +49,16 @@ self_update = { version = "0.42.0", features = [
     "compression-flate2",
 ], optional = true }
 
-# nearcore 2.13 (protocol v85): published 2.13 RC 0.37.0-rc.2; bump to 0.37.0
-# (drop pre-release) once 2.13 ships stable.
-near-crypto = "=0.37.0-rc.2"
-near-primitives = "=0.37.0-rc.2"
-near-jsonrpc-client = { version = "=0.22.0-rc.1", features = ["any"] }
-near-jsonrpc-primitives = "=0.37.0-rc.2"
+# nearcore 2.13 (protocol v85): pinned to 2.13.0 stable on crates.io.
+near-crypto = "0.37.0"
+near-primitives = "0.37.0"
+near-jsonrpc-client = { version = "0.22.0", features = ["any"] }
+near-jsonrpc-primitives = "0.37.0"
 
 interactive-clap = "0.3"
 interactive-clap-derive = "0.3"
 
-near-cli-rs = { version = "=0.28.0-rc.1", default-features = false }
+near-cli-rs = { version = "0.28.0", default-features = false }
 near-token = { version = "0.3", features = [
     "serde",
     "borsh",
