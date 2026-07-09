@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0](https://github.com/near/near-validator-cli-rs/compare/v0.1.13...v0.2.0) - 2026-07-09
+
+### Added
+
+- Support for nearcore 2.13 (protocol 86) and post-quantum ML-DSA-65 signatures
+
+### Fixed
+
+- Reject non-ed25519 validator keys in stake/unstake proposals
+
 ## [0.1.13](https://github.com/near/near-validator-cli-rs/compare/v0.1.12...v0.1.13) - 2026-06-17
 
 ### Other
